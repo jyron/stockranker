@@ -80,7 +80,9 @@ Services (for create,edit,delete in database)
       - delete_comment(comment_id)
 
 #### Endpoints
+
 **Stock Endpoints**
+
     - GET /stocks -> get_all_stocks
     - GET /stocks/:id -> get_stock_by_id
     - GET /stocks/:id/comments -> get_stock_comments
@@ -89,6 +91,7 @@ Services (for create,edit,delete in database)
     - POST /stocks/:id/comment -> add_comment
 
 **User Endpoints**
+
     - GET /users -> get_all_users
     - GET /users/:id -> get_user_by_id
     - GET /users/:id/comments -> get_user_comments
