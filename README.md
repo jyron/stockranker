@@ -12,37 +12,25 @@ This app lists every stock in the [S&P 500](https://en.wikipedia.org/wiki/List_o
     - id
     - name
     - symbol
-    - industry
+    - sector
     - price
-    - votes(fk StockVote.stock_id)
-    - comments(fk Comment.stock_id)
+    - votes
 2. User
     - id
+    - name
     - email
-    - comments(fk Comment.author)
-    - stockvotes(fk StockVote.user_id)
-    - commentvotes(fk CommentVote.user_id)
-3. Comment
-    - id
-    - datetime
-    - text
-    - author(fk User.id)
-    - stock_id(fk Stock.id)
-    - votes(fk CommentVote.comment_id)
-4. StockVote
+    - votes
+
+3. Vote
     - id
     - user_id
     - stock_id
-    - vote(-1/+1)
-5. CommentVote
-    - id
-    - user_id
-    - comment_id
-    - vote(-1/+1)
+    - vote
+
     
 ^Work in Progress using [this](https://stackoverflow.com/questions/52665707/how-do-i-implement-a-like-button-function-to-posts-in-python-flask) and [this](https://stackoverflow.com/questions/55074867/posts-comments-replies-and-likes-database-schema) for reference.
 
-#### User accesible API Functions
+#### User accessible API Functions
 
 Selectors (for reading from database)
 

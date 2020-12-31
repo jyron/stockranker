@@ -3,12 +3,24 @@
 import uvicorn
 from fastapi import FastAPI
 
+
+from app.database import engine, Base
+from app.routes import users
+from app.routes import stocks
+from app.routes import votes
+
+
+Base.metadata.create_all(bind=engine)
 app = FastAPI()
+
+app.include_router(users.router)
+app.include_router(votes.router)
+app.include_router(stocks.router)
 
 
 @app.get("/")
-async def root():
-    return {"message": "Go Babyyy"}
+def root():
+    return {"message": "hello there"}
 
 
 if __name__ == "__main__":

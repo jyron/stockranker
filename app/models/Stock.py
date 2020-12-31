@@ -1,14 +1,14 @@
 from sqlalchemy import Column, Integer, String, Float
-
-
+from sqlalchemy.orm import relationship
 from app.database import Base
 
 
 class Stock(Base):
-    __tablename__ = "stocks"
+    __tablename__ = "stock"
 
     id = Column(Integer, primary_key=True, index=True)
-    symbol = Column(String, unique=True, index=True)
-    name = Column(String)
+    name = Column(String, nullable=False)
+    price = Column(Float, nullable=False)
     sector = Column(String)
-    price = Column(Float)
+    symbol = Column(String)
+    votes = relationship("Vote", cascade="all, delete-orphan", backref="stock")
