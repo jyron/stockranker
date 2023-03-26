@@ -1,5 +1,6 @@
 # Stockranker
-Website to view, like, and comment on stocks.
+## What It Is 
+Website to view, like, and comment on stocks and coins.
 
 ## Todo
 
