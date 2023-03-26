@@ -6,11 +6,11 @@ App to like and comment on stocks
 ### Backend
 #### API Endpoints
 Stock:
-- Post new stock (all info).
-- Get stocks (all info).
-- Get individual stock.
-- Get stock comments.
-- Get stock likes.
+- Post new stock (all info). /stocks/create
+- Get stocks (all info). stocks/
+- Get individual stock. stocks/{id}
+- Get stock comments. stocks/{id}/comments
+- Get stock likes. (this is likely included in stocks/{id})
 
 User:
 - Create User (email, password, optional nickname [don't want to identify people by email? idc idk].
@@ -21,21 +21,19 @@ User:
 - User Comments on Stock.
 - User replies to Comments.
 
-Damn this is a lot of endpoints
-
 #### Background Tasks
 
 - Update Stock info daily (in the future aim for realtime updates). This only includes price and percentage change.
 - Add new stocks as they enter the S&P 500 (I think this list changes often).
 
-### FrontEnd (i hate it and the feeling is mutual :/)
-#### Login Functionality
+### Frontend (i hate it)
+Login Functionality:
 - User Login (Include google login, otherwise whats the point. I think it's called "Oath2"?) Researh that.
 - User Logout (easy, literally delete local storage token)
 - User View Own Profile (maybe easy)
 - User Update Own Profile (maybe easy)
 
-#### Data Viewing (very important, very easy to do poorly)
+Data Viewing (very important, very easy to do poorly):  
 - List stocks in a table, include name, price.  (Maybe react-table, maybe D3 library, whichever has better documentation)
 - Allow search by name.
 - Allow sort by price.
