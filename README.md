@@ -1,7 +1,7 @@
 # Stockranker
-App to like and comment on stocks
+Website to view, like, and comment on stocks.
 
-## Todo (in order)
+## Todo
 
 ### Backend
 #### API Endpoints
