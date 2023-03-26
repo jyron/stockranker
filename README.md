@@ -7,19 +7,19 @@ App to like and comment on stocks
 #### API Endpoints
 Stock:
 - Post new stock (all info). /stocks/create
-- Get stocks (all info). stocks/
-- Get individual stock. stocks/{id}
-- Get stock comments. stocks/{id}/comments
-- Get stock likes. (this is likely included in stocks/{id})
+- Get stocks (all info). /stocks/
+- Get individual stock. /stocks/{id}
+- Get stock comments. /stocks/{id}/comments
+- Get stock likes. /stocks/{id}/likes
 
 User:
 - Create User (email, password, optional nickname [don't want to identify people by email? idc idk].
 - User Logs In
-- User views own profile.
-- User updates own profile (nickname, password).
-- User Likes Stock.
-- User Comments on Stock.
-- User replies to Comments.
+- User views own profile. *post* /user
+- User updates own profile (nickname, password). *post* /user/update
+- User Likes Stock. url tbd
+- User Comments on Stock. url tbd
+- User replies to Comments. url tbd
 
 #### Background Tasks
 
