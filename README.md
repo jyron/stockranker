@@ -42,8 +42,8 @@ Data Viewing (very important, very easy to do poorly):
 
 ### Missing pieces
 -  Idk this section will grow exponentially.
--  Login is going to be tough. Lookingat linkedin or google for an example, minus all the required info.
+-  Login flow is tough. Looking at linkedin or google for an example, minus all the required info. Maybe there's a third-party solution.
 
 ### Notes
-- Listening to Alfa Mist Antiphon https://www.youtube.com/watch?v=BVO_R8uvMhE while i make this project
-- Tracking my work in [Jira](https://stockranker.atlassian.net/jira/software/projects/STOC/boards/1) (practice for work)
+- Listening to [Alfa Mist Antiphon](https://www.youtube.com/watch?v=BVO_R8uvMhE) while i make this project.
+- Tracking work in [Jira](https://stockranker.atlassian.net/jira/software/projects/STOC/boards/1) (practice for work).
