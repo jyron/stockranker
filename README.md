@@ -17,6 +17,7 @@ User:
 - Create User *POST* /user/create/
 - User Logs In. *POST* /user/login/
 - User views own profile. *GET* /user/me/
+- View random user's profile *GET* /user/{id}/
 - User updates own profile. *PUT* /user/{id}/update/
 - User likes Stock. url tbd
 - User Comments on Stock. url tbd
