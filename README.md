@@ -6,18 +6,18 @@ App to like and comment on stocks
 ### Backend
 #### API Endpoints
 Stock:
-- Post new stock (all info). /stocks/create
-- Get stocks (all info). /stocks/
-- Get individual stock. /stocks/{id}
-- Get stock comments. /stocks/{id}/comments
-- Get stock likes. /stocks/{id}/likes
+- Post new stock (all info). /stocks/create/
+- Get stocks (all info). *GET* /stocks/
+- Get individual stock. *GET* /stocks/{id}/
+- Get stock comments. *GET* /stocks/{id}/comments/
+- Get stock likes. *GET* /stocks/{id}/likes/
 
 User:
-- Create User (email, password, optional nickname [don't want to identify people by email? idc idk].
-- User Logs In
-- User views own profile. *post* /user
-- User updates own profile (nickname, password). *post* /user/update
-- User Likes Stock. url tbd
+- Create User *POST* /user/create/
+- User Logs In. *POST* /user/login/
+- User views own profile. *GET* /user/me/
+- User updates own profile. *PUT* /user/{id}/update/
+- User likes Stock. url tbd
 - User Comments on Stock. url tbd
 - User replies to Comments. url tbd
 
@@ -38,7 +38,7 @@ Data Viewing (very important, very easy to do poorly):
 - Allow search by name.
 - Allow sort by price.
 - Allow sort by percent change (movement)
-- Show yearly/monthly/daily stock data. (This requires lot of db space I think? Or a lot of api calls?) It's not my desire/job to save historical data but i want it!
+- Show yearly/monthly/daily stock data. (This requires lot of db space I think? Or a lot of api calls?) It's not my desire/job to save historical data but i want it.
 
 ### Missing pieces
 -  Idk this section will grow exponentially.
