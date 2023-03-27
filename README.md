@@ -7,21 +7,21 @@ Website to view, like, and comment on stocks and coins.
 ### Backend
 #### API Endpoints
 Stock:
-- Post new stock (all info). /stocks/create/
-- Get stocks (all info). *GET* /stocks/
-- Get individual stock. *GET* /stocks/{id}/
-- Get stock comments. *GET* /stocks/{id}/comments/
-- Get stock likes. *GET* /stocks/{id}/likes/
+- Post new stock (all info). [POST] /stocks/create/
+- Get stocks (all info). [GET] /stocks/
+- Get individual stock. [GET] /stocks/{id}/
+- Get stock comments. [GET] /stocks/{id}/comments/
+- Get stock likes. [GET] /stocks/{id}/likes/
 
 User:
-- Create User *POST* /user/create/
-- User Logs In. *POST* /user/login/
-- User views own profile. *GET* /user/me/
-- View random user's profile *GET* /user/{id}/
-- User updates own profile. *PUT* /user/{id}/update/
-- User likes Stock. url tbd
-- User Comments on Stock. url tbd
-- User replies to Comments. url tbd
+- Create User *[OST] /user/create/
+- User Logs In. *[OST] /user/login/
+- User views own profile. [GET] /user/me/
+- View random user's profile [GET] /user/{id}/
+- User updates own profile. [PUT] /user/{id}/update/
+- User likes Stock. [POST] url tbd
+- User Comments on Stock. [POST] url tbd
+- User replies to Comments. [POST] url tbd
 
 #### Background Tasks
 
