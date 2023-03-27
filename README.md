@@ -44,6 +44,9 @@ Data Viewing:
 - Allow sort by percent change.
 - Show yearly/monthly/daily stock data.
 
+### Nice To Haves
+--Dockerise Backend  
+--Dockerise Frontend
 ### Notes
 - Listening to [Alfa Mist Antiphon](https://www.youtube.com/watch?v=BVO_R8uvMhE) March 26, 2023.
 - Listening to [Weeknd Die For You](https://www.youtube.com/watch?v=QLCpqdqeoII) March 27, 2023.
