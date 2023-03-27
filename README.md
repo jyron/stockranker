@@ -14,8 +14,8 @@ Stock:
 - Get stock likes. [GET] /stocks/{id}/likes/
 
 User:
-- Create User *[OST] /user/create/
-- User Logs In. *[OST] /user/login/
+- Create User [POST] /user/create/
+- User Logs In. [POST] /user/login/
 - User views own profile. [GET] /user/me/
 - View random user's profile [GET] /user/{id}/
 - User updates own profile. [PUT] /user/{id}/update/
