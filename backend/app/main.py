@@ -1,10 +1,10 @@
-from app import database, finnhub, routes, scratch
+from app import database, finnhub_module, stock_module, scratch
 from fastapi import FastAPI
 
 app = FastAPI()
 
-app.include_router(routes.stocks.router, tags=["Stocks"])
-app.include_router(finnhub.finnhub_routes.router, tags=["Finnhub"])
+app.include_router(stock_module.routes.router, tags=["Stocks"])
+app.include_router(finnhub_module.routes.router, tags=["Finnhub"])
 app.include_router(scratch.router, tags=["Scratch"])  # Testing Routes.
 
 
