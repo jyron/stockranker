@@ -9,8 +9,6 @@ def get_all_stocks(db: Database):
     data = list(stocks)
     return helpers.convert_objectids_to_strings(data)
 
-# get stockby ticker
-
 
 def get_stock_by_ticker(db: Database, ticker: str):
     """Get a stock by its ticker."""
