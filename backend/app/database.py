@@ -1,11 +1,11 @@
 # Database connection
 
+from app import config
+from fastapi import Depends
 from pymongo import MongoClient
 from pymongo.database import Database
-from fastapi import Depends
-from app import config
 
-mongo_client = MongoClient(config.MONGODB_CONNECTION_STRING)
+mongo_client = MongoClient(config.MONGODB_URI)
 
 
 def get_mongo_client() -> MongoClient:
