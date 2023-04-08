@@ -1,16 +1,12 @@
 # Database connection
 
-from app import config
-from fastapi.params import Depends
 from pymongo import MongoClient
 from pymongo.database import Database
+from app import config
 
 mongo_client = MongoClient(config.MONGODB_URI)
 
 
-def get_mongo_client() -> MongoClient:
-    return mongo_client
-
-
-def get_db(client: MongoClient = Depends(get_mongo_client)) -> Database:
-    return client["stockranker"]
+def get_db() -> Database:
+    db_name = config.MONGODB_DB
+    return mongo_client[db_name]
