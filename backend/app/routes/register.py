@@ -6,14 +6,14 @@ from fastapi import APIRouter, Body, Depends, HTTPException, Response
 from fastapi_jwt_auth import AuthJWT
 from pydantic import EmailStr
 
-from myserver.models.user import User, UserAuth, UserOut
-from myserver.util.mail import send_password_reset_email
-from myserver.util.password import hash_password
+from app.models.user import User, UserAuth, UserOut
+from app.util.mail import send_password_reset_email
+from app.util.password import hash_password
 
-router = APIRouter(prefix="/register", tags=["Register"])
+router = APIRouter(tags=["Register"])
 
 
-@router.post("", response_model=UserOut)
+@router.post("/register", response_model=UserOut)
 async def user_registration(user_auth: UserAuth):
     """Creates a new user"""
     user = await User.by_email(user_auth.email)
@@ -25,7 +25,7 @@ async def user_registration(user_auth: UserAuth):
     return user
 
 
-@router.post("/forgot-password")
+@router.post("/register/forgot-password")
 async def forgot_password(
     email: EmailStr = Body(..., embed=True), auth: AuthJWT = Depends()
 ):
@@ -40,7 +40,7 @@ async def forgot_password(
     return Response(status_code=200)
 
 
-@router.post("/reset-password/{token}", response_model=UserOut)
+@router.post("/register/reset-password/{token}", response_model=UserOut)
 async def reset_password(
     token: str, password: str = Body(..., embed=True), auth: AuthJWT = Depends()
 ):

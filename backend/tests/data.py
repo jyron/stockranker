@@ -4,8 +4,8 @@ Test data handlers
 
 from datetime import datetime, timezone
 
-from myserver.models.user import User
-from myserver.util.password import hash_password
+from app.models.user import User
+from app.util.password import hash_password
 
 
 async def add_empty_user() -> None:

@@ -41,7 +41,7 @@ There are other settings in `config.py` and the included `.env` file. Assuming y
 This sample uses [uvicorn]() as our ASGI web server. This allows us to run our server code in a much more robust and configurable environment than the development server. For example, ASGI servers let you run multiple workers that recycle themselves after a set amount of time or number of requests.
 
 ```bash
-uvicorn myserver.main:app --reload --port 8080
+uvicorn app.main:app --reload --port 8080
 ```
 
 You're API should now be available at http://localhost:8080

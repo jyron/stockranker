@@ -4,7 +4,7 @@ Common test utilities
 
 from httpx import AsyncClient
 
-from myserver.models.auth import RefreshToken
+from app.models.auth import RefreshToken
 
 
 async def auth_payload(client: AsyncClient, email: str) -> RefreshToken:

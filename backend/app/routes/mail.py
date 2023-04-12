@@ -8,14 +8,14 @@ from fastapi import APIRouter, Body, Depends, HTTPException, Response
 from fastapi_jwt_auth.auth_jwt import AuthJWT
 from pydantic import EmailStr
 
-from myserver.models.user import User
-from myserver.util.mail import send_verification_email
+from app.models.user import User
+from app.util.mail import send_verification_email
 
 
-router = APIRouter(prefix="/mail", tags=["Mail"])
+router = APIRouter(tags=["Mail"])
 
 
-@router.post("/verify")
+@router.post("/mail/verify")
 async def request_verification_email(
     email: EmailStr = Body(..., embed=True), auth: AuthJWT = Depends()
 ):
@@ -30,7 +30,7 @@ async def request_verification_email(
     return Response(status_code=200)
 
 
-@router.post("/verify/{token}")
+@router.post("/mail/verify/{token}")
 async def verify_email(token: str, auth: AuthJWT = Depends()):
     """Verify the user's email with the supplied token"""
     # Manually assign the token value

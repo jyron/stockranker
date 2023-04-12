@@ -12,14 +12,14 @@ from decouple import config
 from fastapi import FastAPI
 from httpx import AsyncClient
 
-from myserver.config import CONFIG
+from app.config import CONFIG
 
 
 # Override config settings before loading the app
 CONFIG.testing = True
 CONFIG.mongo_uri = config("TEST_MONGO_URI", default="mongodb://localhost:27017")
 
-from myserver.main import app
+from app.main import app
 
 
 async def clear_database(server: FastAPI) -> None:

@@ -5,7 +5,7 @@ Current user dependency
 from fastapi import Depends, HTTPException
 from fastapi_jwt_auth import AuthJWT
 
-from myserver.models.user import User
+from app.models.user import User
 
 
 async def current_user(auth: AuthJWT = Depends()) -> User:

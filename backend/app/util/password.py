@@ -4,7 +4,7 @@ Password utility functions
 
 import bcrypt
 
-from myserver.config import CONFIG
+from app.config import CONFIG
 
 
 def hash_password(password: str) -> str:

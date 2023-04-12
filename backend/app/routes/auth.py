@@ -5,15 +5,15 @@ Authentication router
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi_jwt_auth import AuthJWT
 
-from myserver.models.auth import AccessToken, RefreshToken
-from myserver.models.user import User, UserAuth
-from myserver.util.password import hash_password
+from app.models.auth import AccessToken, RefreshToken
+from app.models.user import User, UserAuth
+from app.util.password import hash_password
 
 
-router = APIRouter(prefix="/auth", tags=["Auth"])
+router = APIRouter(tags=["Auth"])
 
 
-@router.post("/login")
+@router.post("/auth/login")
 async def login(user_auth: UserAuth, auth: AuthJWT = Depends()):
     """Authenticates and returns the user's JWT"""
     user = await User.by_email(user_auth.email)
@@ -24,7 +24,7 @@ async def login(user_auth: UserAuth, auth: AuthJWT = Depends()):
     return RefreshToken(access_token=access_token, refresh_token=refresh_token)
 
 
-@router.post("/refresh")
+@router.post("/auth/refresh")
 async def refresh(auth: AuthJWT = Depends()):
     """Returns a new access token from a refresh token"""
     auth.jwt_refresh_token_required()
