@@ -1,12 +1,32 @@
-import os
+"""
+FastAPI server configuration
+"""
 
-from dotenv import load_dotenv
+# pylint: disable=too-few-public-methods
 
-load_dotenv()
+from decouple import config
+from pydantic import BaseModel
 
-MONGODB_URI = os.environ["MONGODB_URI"]
-MONGODB_DB = os.environ["MONGODB_DB"]
-FINNHUB_API_KEY = os.environ["FINNHUB_API_KEY"]
-FINNHUB_BASE_URL = os.environ["FINNHUB_BASE_URL"]
-SECRET_KEY = os.environ["SECRET_KEY"]
-ALGORITHM = os.environ["ALGORITHM"]
+
+class Settings(BaseModel):
+    """Server config settings"""
+
+    # Mongo Engine settings
+    mongo_uri = config("MONGO_URI")
+
+    # Security settings
+    authjwt_secret_key = config("SECRET_KEY")
+    salt = config("SALT").encode()
+
+    # FastMail SMTP server settings
+    mail_console = config("MAIL_CONSOLE", default=False, cast=bool)
+    mail_server = config("MAIL_SERVER", default="smtp.myserver.io")
+    mail_port = config("MAIL_PORT", default=587, cast=int)
+    mail_username = config("MAIL_USERNAME", default="")
+    mail_password = config("MAIL_PASSWORD", default="")
+    mail_sender = config("MAIL_SENDER", default="noreply@myserver.io")
+
+    testing = config("TESTING", default=False, cast=bool)
+
+
+CONFIG = Settings()

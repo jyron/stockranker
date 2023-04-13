@@ -1,19 +1,24 @@
-from app import database, finnhub_module, scratch, stock_module, user_module
-from fastapi import FastAPI
+"""
+Server main runtime
+"""
 
-app = FastAPI()
+# pylint: disable=unused-import
 
-app.include_router(stock_module.routes.router, tags=["Stocks"])
-app.include_router(finnhub_module.routes.router, tags=["Finnhub"])
-app.include_router(scratch.router, tags=["Scratch"])  # Testing Routes.
-app.include_router(user_module.routes.router, tags=["Users"])
+from app import jwt
+from app.app import app
+from app.routes.auth import router as AuthRouter
+from app.routes.mail import router as MailRouter
+from app.routes.register import router as RegisterRouter
+from app.routes.user import router as UserRouter
 
 
-@app.on_event("shutdown")
-async def close_mongo_client() -> None:
-    database.mongo_client.close()
+app.include_router(AuthRouter)
+app.include_router(MailRouter)
+app.include_router(RegisterRouter)
+app.include_router(UserRouter)
 
 
 @app.get("/", tags=["Root"])
 async def root():
-    return {"message": "I\'d do anything, for you, in the dark."}
+    """Root endpoint"""
+    return {"message": "Hello World"}
