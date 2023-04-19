@@ -1,0 +1,45 @@
+.topnav {
+    background-color: #333;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .topnav a.active {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  /* CSS for the login form */
+  #login-form {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  #login-form input[type="email"],
+  #login-form input[type="password"] {
+    padding: 8px;
+    width: 150px;
+  }
+
+  #login-form button[type="submit"] {
+    padding: 8px;
+  }
