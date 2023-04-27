@@ -63,4 +63,4 @@ class User(Document, UserOut):
     @classmethod
     async def by_email(cls, email: str) -> "User":
         """Get a user by email"""
-        return await cls.find_one(cls.email == email)
+        return await cls.find_one(cls.email == email.lower())
