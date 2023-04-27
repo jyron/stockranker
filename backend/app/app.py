@@ -11,6 +11,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from app.config import CONFIG
 from app.models.user import User
+from app.models.stock import Stock
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -47,4 +48,4 @@ app.add_middleware(
 async def app_init():
     """Initialize application services"""
     app.db = AsyncIOMotorClient(CONFIG.mongo_uri).stockranker
-    await init_beanie(app.db, document_models=[User])
+    await init_beanie(app.db, document_models=[User, Stock])

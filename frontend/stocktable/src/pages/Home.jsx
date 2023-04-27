@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import StockPage from "../components/StockPage";
 
 function Home() {
   return (

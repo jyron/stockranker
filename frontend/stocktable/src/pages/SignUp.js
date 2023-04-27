@@ -42,7 +42,7 @@ export default function SignUp() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     try {
-      await axios.post("http://your-api-url/register", {
+      await axios.post("http://localhost:8080/register", {
         email: data.get("email"),
         password: data.get("password"),
       });
@@ -50,7 +50,7 @@ export default function SignUp() {
       // Redirect the user to the sign-in page after successful registration
       navigate("/signin");
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error("Registration error:", error.response.data.detail);
       // Display an error message to the user
       // ...
     }
@@ -79,27 +79,6 @@ export default function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
