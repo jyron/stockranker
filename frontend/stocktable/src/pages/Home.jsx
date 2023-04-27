@@ -8,6 +8,7 @@ function Home() {
     <Box>
       <Typography variant="h1">StockRanker.co</Typography>
       <Typography variant="body1">Welcome to our homepage!</Typography>
+      <StockPage />
     </Box>
   );
 }
