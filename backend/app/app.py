@@ -4,16 +4,14 @@ Server app config
 
 # pylint: disable=import-error
 
+from app.config import CONFIG
+from app.models.like import StockLike
+from app.models.stock import Stock
+from app.models.user import User
+from beanie import init_beanie
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
-
-from app.config import CONFIG
-from app.models.user import User
-from app.models.stock import Stock
-
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -48,4 +46,4 @@ app.add_middleware(
 async def app_init():
     """Initialize application services"""
     app.db = AsyncIOMotorClient(CONFIG.mongo_uri).stockranker
-    await init_beanie(app.db, document_models=[User, Stock])
+    await init_beanie(app.db, document_models=[User, Stock, StockLike])

@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from "react";
 import { useTable } from "react-table";
+import { likeStock } from "../utilities/like";
 
 const StockTable = ({ stocks }) => {
+  const [loading, setLoading] = useState(false);
   const columns = useMemo(
     () => [
       {
@@ -20,7 +22,12 @@ const StockTable = ({ stocks }) => {
         Header: "Actions",
         id: "actions",
         Cell: ({ row }) => (
-          <button onClick={() => handleLike(row.original)}>Like</button>
+          <button
+            disabled={loading}
+            onClick={() => handleLike(row.original._id, "like")}
+          >
+            Like
+          </button>
         ),
       },
       {
@@ -43,15 +50,23 @@ const StockTable = ({ stocks }) => {
         ),
       },
     ],
-    []
+    [loading]
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data: stocks });
 
-  const handleLike = (stock) => {
+  const handleLike = async (stockId, action) => {
     // Implement the like functionality here
-    console.log("Liked stock:", stock.ticker);
+    setLoading(true);
+    try {
+      await likeStock(stockId, action);
+    } catch (error) {
+      console.error("Error Liking stock:", error);
+    } finally {
+      setLoading(false);
+    }
+    console.log("Liked stock:", stockId);
   };
 
   const handleComment = (e, stock) => {
