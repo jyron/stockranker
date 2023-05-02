@@ -32,6 +32,7 @@ class Stock(Document):
     likes: int
     dislikes: int
     comments: list
+    likes_count: Optional[int] = None
 
     class Settings:
         name = "stock"

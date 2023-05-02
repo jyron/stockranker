@@ -16,7 +16,7 @@ const StockTable = ({ stocks }) => {
       },
       {
         Header: "Likes",
-        accessor: "likes",
+        accessor: "likes_count",
       },
       {
         Header: "Actions",

@@ -7,11 +7,45 @@ from app.util.current_user import current_user
 from datetime import datetime
 
 
+# async def get_all_stocks():
+#     """Retrieve all stocks from the database."""
+#     stocks = []
+#     try:
+#         async for stock in Stock.find():
+#             if len(stocks) < 10:
+#                 print("XXXXX")
+#                 print(stock.name)
+#                 print(stock.id)
+#                 count = 0
+#                 async for like in StockLike.find():
+#                     if like.stock_id == str(stock.id):
+#                         count += 1
+#                 print("StockLikes: ", count)
+#             stocks.append(stock)
+#     except Exception as e:
+#         print(e)
+
+#     return stocks
+
+
 async def get_all_stocks():
     """Retrieve all stocks from the database."""
     stocks = []
-    async for stock in Stock.find():
-        stocks.append(stock)
+
+    # Get the count of likes for each stock
+    pipeline = [{"$group": {"_id": "$stock_id", "count": {"$sum": 1}}}]
+    stock_likes = {
+        str(doc["_id"]): doc["count"] async for doc in StockLike.aggregate(pipeline)
+    }
+
+    try:
+        async for stock in Stock.find():
+            count = stock_likes.get(str(stock.id), 0)
+            stock.likes_count = count
+            stocks.append(stock)
+    except Exception as e:
+        print(e)
+
     return stocks
 
 
